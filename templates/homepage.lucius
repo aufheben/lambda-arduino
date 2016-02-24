@@ -1,25 +1,37 @@
 h1 {
     text-align: center;
-    margin-bottom: 30px
-}
-h2##{aDomId} {
-    color: #990
-}
-li {
-    line-height: 2em;
-    font-size: 16px
-}
-ol {
-    margin-bottom: 30px
-}
-footer {
-    text-align: center
-}
-.input-sm {
-    margin-left: 20px
+    margin-bottom: 30px;
 }
 
-##{commentTextareaId} {
-    width: 400px;
-    height: 100px;
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 0px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 0px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
 }

@@ -1,74 +1,229 @@
 <h1.jumbotron>
-  Welcome to Yesod!
+  Welcome to λ-arduino!
 
-<.page-header><h2>Starting
+<div .row>
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-warning .btn-circle .btn-lg>
+          AREF
+      <div .col-md-3>
+        <button type="button" .btn .btn-success .btn-circle .btn-lg>
+          GND
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D13
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D12
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D11
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D10
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D9
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D8
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D7
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D6
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D5
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D4
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D3
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+          <li>
+            <a .dropdown-item href="#">
+              PWM
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D2
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+      <div .col-md-3 .dropdown>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D1
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+      <div .col-md-3 .dropdown>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          D0
+        <ul .dropdown-menu>
+          <li>
+            <a .dropdown-item href="#">
+              Input
+          <li>
+            <a .dropdown-item href="#">
+              Output
+<div .row>
+  <img .center-block src=@{StaticR img_duemilanove_jpg}>
+<div .row>
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-danger  .btn-circle .btn-lg>
+          RST
+      <div .col-md-3>
+        <button type="button" .btn .btn-warning .btn-circle .btn-lg>
+          3V3
+      <div .col-md-3>
+        <button type="button" .btn .btn-warning .btn-circle .btn-lg>
+          5V
+      <div .col-md-3>
+        <button type="button" .btn .btn-success .btn-circle .btn-lg>
+          GND
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-success .btn-circle .btn-lg>
+          GND
+      <div .col-md-3>
+        <button type="button" .btn .btn-primary .btn-circle .btn-lg>
+          Vin
+      <div .col-md-3>
+      <div .col-md-3>
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+      <div .col-md-3>
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A0
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A1
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A2
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A3
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A4
+      <div .col-md-3>
+        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+          A5
 
-<section.list-group>
-  <span .list-group-item>
-    Now that you have a working project you should use the
-    <a href=http://www.yesodweb.com/book/>
-      Yesod book <span class="glyphicon glyphicon-book"></span>
-    to learn more.
-    You can also use this scaffolded site to explore some basic concepts.
-
-  <span .list-group-item>
-    This page was generated by the <tt>#{handlerName}</tt> handler in
-    <tt>Handler/Home.hs</tt>.
-
-  <span .list-group-item>
-    The <tt>#{handlerName}</tt> handler is set to generate your
-    site's home screen in Routes file
-    <tt>config/routes
-
-  <span .list-group-item>
-    The HTML you are seeing now is actually composed by a number of <em>widgets</em>, #
-    most of them are brought together by the <tt>defaultLayout</tt> function which #
-    is defined in the <tt>Foundation.hs</tt> module, and used by <tt>#{handlerName}</tt>. #
-    All the files for templates and wigdets are in <tt>templates</tt>.
-
-  <span .list-group-item>
-    A Widget's Html, Css and Javascript are separated in three files with the
-    <tt>.hamlet</tt>, <tt>.lucius</tt> and <tt>.julius</tt> extensions.
-
-  <span .list-group-item ##{aDomId}>
-    If you had javascript enabled then you wouldn't be seeing this.
-
-<section.page-header>
-  <h2>Forms
-
-  <div>
-    This is an example trivial Form. Read the
-    <a href="http://www.yesodweb.com/book/forms">Forms chapter<span class="glyphicon glyphicon-bookmark"></span></a> #
-    on the yesod book to learn more about them.
-    $maybe (info,con) <- submission
-      <div .message .alert .alert-success>
-        Your file's type was <em>#{fileContentType info}</em>. You say it has: <em>#{con}</em>
-    <form method=post action=@{HomeR}#form enctype=#{formEnctype}>
-      ^{formWidget}
-      <button .btn .btn-primary type="submit">
-         Send it! <span class="glyphicon glyphicon-upload"></span>
-
-<section.page-header>
-  <h2>JSON
-
-  <p>
-    Yesod has JSON support baked-in.
-    The form below makes an AJAX request with Javascript,
-    then updates the page with your submission.
-    (see <tt>Handler/Comment.hs</tt>, <tt>templates/homepage.julius</tt>,
-    and <tt>Handler/Home.hs</tt> for the implementation).
-    <form ##{commentFormId}>
-      <.form-group>
-        <textarea ##{commentTextareaId} placeholder="Your comment here..." required></textarea>
-      <button .btn .btn-primary type="submit">
-        Create comment
-
-    <ul ##{commentListId}>
-
-<section.page-header>
-  <h2>Testing
-
-  <p>
-    And last but not least, Testing. In <tt>test/Spec.hs</tt> you will find a #
-    test suite that performs tests on this page. #
-    You can run your tests by doing: <pre>stack test</pre>
+<script src=@{StaticR js_bootstrap_js}>

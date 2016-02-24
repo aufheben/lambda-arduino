@@ -14,14 +14,20 @@ import Text.Julius (RawJS (..))
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
 getHomeR = do
-    (formWidget, formEnctype) <- generateFormPost sampleForm
-    let submission = Nothing :: Maybe (FileInfo, Text)
-        handlerName = "getHomeR" :: Text
     defaultLayout $ do
         let (commentFormId, commentTextareaId, commentListId) = commentIds
         aDomId <- newIdent
-        setTitle "Welcome To Yesod!"
+        setTitle "λ-arduino"
         $(widgetFile "homepage")
+
+    -- (formWidget, formEnctype) <- generateFormPost sampleForm
+    -- let submission = Nothing :: Maybe (FileInfo, Text)
+    --     handlerName = "getHomeR" :: Text
+    -- defaultLayout $ do
+    --     let (commentFormId, commentTextareaId, commentListId) = commentIds
+    --     aDomId <- newIdent
+    --     setTitle "Welcome To Yesod!"
+    --     $(widgetFile "homepage")
 
 postHomeR :: Handler Html
 postHomeR = do
