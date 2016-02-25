@@ -2,6 +2,7 @@ module Global where
 
 import Control.Concurrent.Async
 import Import
+import System.Hardware.Arduino
 import System.IO.Unsafe
 
 gAsync :: MVar (Async ())
@@ -9,3 +10,11 @@ gAsync :: MVar (Async ())
 gAsync = unsafePerformIO $ do
   a <- async (return ())
   newMVar a
+
+gArduinoIO :: MVar (Arduino a)
+{-# NOINLINE gArduinoIO #-}
+gArduinoIO = unsafePerformIO newEmptyMVar
+
+gArduinoRes :: MVar a
+{-# NOINLINE gArduinoRes #-}
+gArduinoRes = unsafePerformIO newEmptyMVar

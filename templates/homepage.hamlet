@@ -206,24 +206,24 @@
       <div .col-md-3>
       <div .col-md-3>
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a0 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A0
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a1 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A1
   <div .col-md-3>
     <div .row>
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a2 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A2
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a3 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A3
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a4 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A4
       <div .col-md-3>
-        <button type="button" .btn .btn-info    .btn-circle .btn-lg>
+        <button #btn-a5 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A5
 
 <script src=@{StaticR js_bootstrap_js}>

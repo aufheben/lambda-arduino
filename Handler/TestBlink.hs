@@ -1,21 +1,17 @@
 module Handler.TestBlink where
 
-import Control.Concurrent.Async
-import Global
 import Import
 import System.Hardware.Arduino
+import Util
 import qualified Data.HashMap.Strict as M
 
 getTestBlinkR :: Handler Value
 getTestBlinkR = do
-  liftIO $ modifyMVar_ gAsync $ \a -> do
-    cancel a
-    _ <- waitCatch a
-    async blink
+  runOnBoard blink
   return $ toValue []
 
 blink :: IO ()
-blink = withArduino True "/dev/ttyUSB1" $ do
+blink = withArduino' $ do
   let led = digital 13
   setPinMode led OUTPUT
   forever $ do digitalWrite led True

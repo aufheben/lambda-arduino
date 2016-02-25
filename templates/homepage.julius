@@ -1,0 +1,17 @@
+var analog_in = [0, 1, 2];
+
+$('#btn-a5').on('click', function(event) {
+  event.preventDefault(); // To prevent following the link (optional)
+  console.log("hello");
+});
+
+setInterval(function(){
+    // console.log(JSON.stringify({pins : analog_in}));
+    // this would convert it to JSON, but that's not the same thing as the query param
+
+    $.get('@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
+          function(data) {
+            console.log(data );
+          }
+    );
+  }, 1000);

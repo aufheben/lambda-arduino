@@ -8,3 +8,4 @@
 
 /comments CommentR POST
 /test/blink TestBlinkR GET
+/analog/read AnalogReadR GET
