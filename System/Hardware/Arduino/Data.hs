@@ -99,6 +99,11 @@ data PinMode = INPUT    -- ^ Digital input
              | SERVO    -- ^ Servo Motor controller
              | SHIFT    -- ^ Shift controller
              | I2C      -- ^ I2C (Inter-Integrated-Circuit) connection
+             | ONEWIRE
+             | STEPPER
+             | ENCODER
+             | SERIAL
+             | PULLUP
              deriving (Eq, Show, Enum)
 
 -- | A request, as sent to Arduino
