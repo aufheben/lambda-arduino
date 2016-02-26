@@ -9,3 +9,7 @@
 /comments CommentR POST
 /test/blink TestBlinkR GET
 /analog/read AnalogReadR GET
+/analog/in AnalogInR GET
+/analog/out AnalogOutR GET
+/digital/in DigitalInR GET
+/digital/out DigitalOutR GET

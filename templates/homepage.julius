@@ -1,9 +1,37 @@
-var analog_in = [0, 1, 2];
+var analog_btn = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
+var analog_in  = [];
 
-$('#btn-a5').on('click', function(event) {
+function analog_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
-  console.log("hello");
-});
+  var idx = analog_in.indexOf(i);
+  if (idx == -1)
+  {
+    analog_in.push(i);
+    // TODO: change color
+  }
+  else
+  {
+    analog_in.splice(idx, 1);
+    // TODO: change color
+    $(analog_btn[i]).html('A' + i);
+  }
+
+  // console.log(analog_in);
+  $.get('@{AnalogInR}' + '?pins=' + JSON.stringify(analog_in));
+}
+
+// this doesn't work because i will be 6 when the function is actually called
+//
+// for (var i = 0; i < analog_btn.length; i++) {
+//   $(analog_btn[i]).on('click', function(event) { analog_clicked(event, i) });
+// }
+
+$('#btn-a0').on('click', function(event) { analog_clicked(event, 0) });
+$('#btn-a1').on('click', function(event) { analog_clicked(event, 1) });
+$('#btn-a2').on('click', function(event) { analog_clicked(event, 2) });
+$('#btn-a3').on('click', function(event) { analog_clicked(event, 3) });
+$('#btn-a4').on('click', function(event) { analog_clicked(event, 4) });
+$('#btn-a5').on('click', function(event) { analog_clicked(event, 5) });
 
 setInterval(function(){
     // console.log(JSON.stringify({pins : analog_in}));
@@ -12,6 +40,9 @@ setInterval(function(){
     $.get('@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
           function(data) {
             console.log(data );
+            for (var i = 0; i < analog_in.length; i++) {
+              $(analog_btn[analog_in[i]]).html((data[i] / 1023 * 5).toFixed(2));
+            }
           }
     );
   }, 1000);
