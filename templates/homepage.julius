@@ -1,7 +1,14 @@
-var btn_colors = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
+var btn_class  = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
+var btn_colors = ['#CC6699', '#FF7F0E', '#CC3333', '#3F5D7D', '2CA02C', '#993333'];
 var analog_btn = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
 var analog_in  = [];
 var first_time = true;
+var chart;
+
+var time_ms    = 0;
+var time_range = 10000;
+var ain_data   = [[], [], [], [], [], []];
+var ain_keys   = ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'];
 
 function analog_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
@@ -11,10 +18,13 @@ function analog_clicked(event, i) {
     first_time = false;
     $('#chart').html('<svg style="height: 360px"></svg>');
     nv.addGraph(function() {
-      var chart = nv.models.lineChart()
+      chart = nv.models.lineChart()
         .useInteractiveGuideline(true)
+        .showLegend(false)
+        .xDomain([0, time_range])
         ;
 
+      // ',' as thousands separator, 'r' for rounded
       chart.xAxis
         .axisLabel('Time (ms)')
         .tickFormat(d3.format(',r'))
@@ -26,7 +36,7 @@ function analog_clicked(event, i) {
         ;
 
       d3.select('#chart svg')
-        .datum(test_data())
+        .datum(ain_datum())
         .transition().duration(500)
         .call(chart)
         ;
@@ -37,18 +47,17 @@ function analog_clicked(event, i) {
     });
   }
 
-  $(analog_btn[i]).toggleClass(btn_colors[i]);
+  $(analog_btn[i]).toggleClass(btn_class[i]);
 
   var idx = analog_in.indexOf(i);
   if (idx == -1)
   {
     analog_in.push(i);
-    // TODO: change color
   }
   else
   {
     analog_in.splice(idx, 1);
-    // TODO: change color
+    ain_data[i] = [];
     $(analog_btn[i]).html('A' + i);
   }
 
@@ -69,6 +78,8 @@ $('#btn-a3').on('click', function(event) { analog_clicked(event, 3) });
 $('#btn-a4').on('click', function(event) { analog_clicked(event, 4) });
 $('#btn-a5').on('click', function(event) { analog_clicked(event, 5) });
 
+var interval = 100;
+
 setInterval(function(){
     // console.log(JSON.stringify({pins : analog_in}));
     // this would convert it to JSON, but that's not the same thing as the query param
@@ -77,32 +88,48 @@ setInterval(function(){
     $.get('@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
           function(data) {
             console.log(data);
-            for (var i = 0; i < analog_in.length; i++) {
-              $(analog_btn[analog_in[i]]).html((data[i] / 1023 * 5).toFixed(2));
+            if (analog_in.length == 0)
+              time_ms = 0;
+            else
+            {
+              for (var i = 0; i < analog_in.length; i++) {
+                var j = analog_in[i];
+                var voltage = (data[i] / 1023 * 5).toFixed(2)
+                $(analog_btn[j]).html(voltage);
+                ain_data[j].push({x: time_ms, y: voltage});
+              }
+
+              // console.log(JSON.stringify(ain_data[0]));
+
+              if (chart)
+              {
+                d3.select('#chart svg')
+                  .datum(ain_datum())
+                  .transition().duration(500)
+                  .call(chart)
+                  ;
+              }
+
+              if (time_ms == time_range)
+              {
+                for (var i = 0; i < analog_in.length; i++) {
+                  var j = analog_in[i];
+                  ain_data[j] = [];
+                }
+                time_ms = 0;
+              }
+              else
+                time_ms += interval;
             }
           }
     );
-  }, 1000);
+  }, interval);
 
-function test_data() {
-  var sin = [],
-      cos = [];
-
-  for (var i = 0; i < 100; i++) {
-    sin.push({x: i, y: Math.sin(i/10)});
-    cos.push({x: i, y: .5 * Math.cos(i/10)});
+function ain_datum() {
+  var result = []
+  for (var i = 0; i < analog_in.length; i++) {
+    var j = analog_in[i];
+    result.push({ values: ain_data[j], key: ain_keys[j], color: btn_colors[j] });
   }
-
-  return [
-    {
-      values: sin,
-      key: 'Sine Wave',
-      color: '#ff7f0e'
-    },
-    {
-      values: cos,
-      key: 'Cosine Wave',
-      color: '#2ca02c'
-    }
-  ];
+  return result;
 }
