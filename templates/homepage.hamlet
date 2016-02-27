@@ -174,7 +174,7 @@
           <li>
             <a .dropdown-item href="#">
               Output
-<div .row>
+<div .row #chart>
   <img .center-block src=@{StaticR img_duemilanove_jpg}>
 <div .row>
   <div .col-md-3>
@@ -227,3 +227,5 @@
           A5
 
 <script src=@{StaticR js_bootstrap_js}>
+<script src=@{StaticR js_d3_min_js}>
+<script src=@{StaticR js_nv_d3_min_js}>

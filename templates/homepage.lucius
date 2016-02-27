@@ -35,3 +35,39 @@ footer {
   line-height: 1.33;
   border-radius: 35px;
 }
+
+.btn-0,
+.btn-0:focus {
+  background: #CC6699;
+  border-color: #CC6699;
+}
+
+.btn-1,
+.btn-1:focus {
+  background: #FF7F0E;
+  border-color: #FF7F0E;
+}
+
+.btn-2,
+.btn-2:focus {
+  background: #CC3333;
+  border-color: #CC3333;
+}
+
+.btn-3,
+.btn-3:focus {
+  background: #3F5D7D;
+  border-color: #3F5D7D;
+}
+
+.btn-4,
+.btn-4:focus {
+  background: #2CA02C;
+  border-color: #2CA02C;
+}
+
+.btn-5,
+.btn-5:focus {
+  background: #993333;
+  border-color: #993333;
+}

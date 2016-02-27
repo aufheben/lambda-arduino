@@ -1,8 +1,44 @@
+var btn_colors = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
 var analog_btn = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
 var analog_in  = [];
+var first_time = true;
 
 function analog_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
+
+  if (first_time)
+  {
+    first_time = false;
+    $('#chart').html('<svg style="height: 360px"></svg>');
+    nv.addGraph(function() {
+      var chart = nv.models.lineChart()
+        .useInteractiveGuideline(true)
+        ;
+
+      chart.xAxis
+        .axisLabel('Time (ms)')
+        .tickFormat(d3.format(',r'))
+        ;
+
+      chart.yAxis
+        .axisLabel('Voltage (v)')
+        .tickFormat(d3.format('.02f'))
+        ;
+
+      d3.select('#chart svg')
+        .datum(test_data())
+        .transition().duration(500)
+        .call(chart)
+        ;
+
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });
+  }
+
+  $(analog_btn[i]).toggleClass(btn_colors[i]);
+
   var idx = analog_in.indexOf(i);
   if (idx == -1)
   {
@@ -37,12 +73,36 @@ setInterval(function(){
     // console.log(JSON.stringify({pins : analog_in}));
     // this would convert it to JSON, but that's not the same thing as the query param
 
+    // console.log("### $.get");
     $.get('@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
           function(data) {
-            console.log(data );
+            console.log(data);
             for (var i = 0; i < analog_in.length; i++) {
               $(analog_btn[analog_in[i]]).html((data[i] / 1023 * 5).toFixed(2));
             }
           }
     );
   }, 1000);
+
+function test_data() {
+  var sin = [],
+      cos = [];
+
+  for (var i = 0; i < 100; i++) {
+    sin.push({x: i, y: Math.sin(i/10)});
+    cos.push({x: i, y: .5 * Math.cos(i/10)});
+  }
+
+  return [
+    {
+      values: sin,
+      key: 'Sine Wave',
+      color: '#ff7f0e'
+    },
+    {
+      values: cos,
+      key: 'Cosine Wave',
+      color: '#2ca02c'
+    }
+  ];
+}
