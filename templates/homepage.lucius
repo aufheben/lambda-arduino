@@ -50,8 +50,8 @@ footer {
 
 .btn-2,
 .btn-2:focus {
-  background: #CC3333;
-  border-color: #CC3333;
+  background: #17A697;
+  border-color: #17A697;
 }
 
 .btn-3,

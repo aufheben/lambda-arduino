@@ -1,5 +1,5 @@
 var btn_class  = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
-var btn_colors = ['#CC6699', '#FF7F0E', '#CC3333', '#3F5D7D', '2CA02C', '#993333'];
+var btn_colors = ['#CC6699', '#FF7F0E', '#17A697', '#3F5D7D', '2CA02C', '#993333'];
 var analog_btn = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
 var analog_in  = [];
 var first_time = true;
