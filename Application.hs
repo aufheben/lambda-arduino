@@ -16,6 +16,7 @@ module Application
 import Control.Monad.Logger                 (liftLoc, runLoggingT)
 import Database.Persist.Sqlite              (createSqlitePool, runSqlPool,
                                              sqlDatabase, sqlPoolSize)
+import Global
 import Import
 import Language.Haskell.TH.Syntax           (qLocation)
 import Network.Wai (Middleware)
@@ -27,8 +28,10 @@ import Network.Wai.Middleware.RequestLogger (Destination (Logger),
                                              IPAddrSource (..),
                                              OutputFormat (..), destination,
                                              mkRequestLogger, outputFormat)
+import System.Hardware.Arduino
 import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
+import Util
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
@@ -122,9 +125,20 @@ warpSettings foundation =
             (toLogStr $ "Exception from Warp: " ++ show e))
       defaultSettings
 
+loop :: IO ()
+loop = do
+  withArduino' $ do
+    setLed True
+    forever $ do
+      io <- liftIO $ takeMVar gArduinoIO
+      a  <- io
+      liftIO $ putMVar gArduinoRes a
+
 -- | For yesod devel, return the Warp settings and WAI Application.
 getApplicationDev :: IO (Settings, Application)
 getApplicationDev = do
+    runOnBoard loop
+
     settings <- getAppSettings
     foundation <- makeFoundation settings
     wsettings <- getDevSettings $ warpSettings foundation
@@ -141,6 +155,8 @@ develMain = develMainHelper getApplicationDev
 -- | The @main@ function for an executable running this site.
 appMain :: IO ()
 appMain = do
+    runOnBoard loop
+
     -- Get the settings from all relevant sources
     settings <- loadAppSettingsArgs
         -- fall back to compile-time values, set to [] to require values at runtime

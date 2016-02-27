@@ -6,8 +6,10 @@ import Global
 import Import
 import System.Hardware.Arduino
 
+-- TODO: looks like setting first argument to False will produce this bug:
+-- hArduino:ERROR: Communication time-out (5s) expired.
 withArduino' :: Arduino () -> IO ()
-withArduino' = withArduino False "/dev/ttyUSB1"
+withArduino' = withArduino True "/dev/ttyUSB1"
 
 runOnBoard :: MonadIO m => IO () -> m ()
 runOnBoard io =
@@ -29,3 +31,9 @@ setPins io = do
   putMVar gArduinoIO (io pins)
   _ <- takeMVar gArduinoRes
   return $ toJSON ()
+
+setLed :: Bool -> Arduino ()
+setLed b = do
+  let led = digital 13
+  setPinMode led OUTPUT
+  digitalWrite led b

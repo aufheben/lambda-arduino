@@ -1,8 +1,6 @@
 module Handler.Home where
 
-import Global
 import Import
-import Util
 
 -- This is a handler function for the GET request method on the HomeR
 -- resource pattern. All of your resource patterns are defined in
@@ -12,17 +10,11 @@ import Util
 -- functions. You can spread them across multiple files if you are so
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
-getHomeR = do
-  runOnBoard loop
+getHomeR =
   defaultLayout $ do
-      setTitle "λ-arduino"
-      $(widgetFile "homepage")
-
-loop :: IO ()
-loop = withArduino' $ forever $ do
-  io <- liftIO $ takeMVar gArduinoIO
-  a  <- io
-  liftIO $ putMVar gArduinoRes a
+    addStylesheet $ StaticR css_nv_d3_css
+    setTitle "λ-arduino"
+    $(widgetFile "homepage")
 
 postHomeR :: Handler Html
 postHomeR = undefined
