@@ -81,48 +81,51 @@ $('#btn-a5').on('click', function(event) { analog_clicked(event, 5) });
 var interval = 100;
 
 setInterval(function(){
-    // console.log(JSON.stringify({pins : analog_in}));
-    // this would convert it to JSON, but that's not the same thing as the query param
+  // console.log(JSON.stringify({pins : analog_in}));
+  // this would convert it to JSON, but that's not the same thing as the query param
 
-    // console.log("### $.get");
-    $.get('@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
-          function(data) {
-            console.log(data);
-            if (analog_in.length == 0)
-              time_ms = 0;
-            else
-            {
-              for (var i = 0; i < analog_in.length; i++) {
-                var j = analog_in[i];
-                var voltage = (data[i] / 1023 * 5).toFixed(2)
-                $(analog_btn[j]).html(voltage);
-                ain_data[j].push({x: time_ms, y: voltage});
-              }
-
-              // console.log(JSON.stringify(ain_data[0]));
-
-              if (chart)
-              {
-                d3.select('#chart svg')
-                  .datum(ain_datum())
-                  .transition().duration(500)
-                  .call(chart)
-                  ;
-              }
-
-              if (time_ms == time_range)
-              {
-                for (var i = 0; i < analog_in.length; i++) {
-                  var j = analog_in[i];
-                  ain_data[j] = [];
-                }
-                time_ms = 0;
-              }
-              else
-                time_ms += interval;
-            }
+  // console.log("### $.get " + analog_in);
+  $.ajax(
+    {
+      url: '@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
+      success: function(data) {
+        console.log(data);
+        if (analog_in.length == 0)
+          time_ms = 0;
+        else
+        {
+          for (var i = 0; i < analog_in.length; i++) {
+            var j = analog_in[i];
+            var voltage = (data[i] / 1023 * 5).toFixed(2)
+            $(analog_btn[j]).html(voltage);
+            ain_data[j].push({x: time_ms, y: voltage});
           }
-    );
+
+          // console.log(JSON.stringify(ain_data[0]));
+
+          if (chart)
+          {
+            d3.select('#chart svg')
+              .datum(ain_datum())
+              .transition().duration(500)
+              .call(chart)
+              ;
+          }
+
+          if (time_ms == time_range)
+          {
+            for (var i = 0; i < analog_in.length; i++) {
+              var j = analog_in[i];
+              ain_data[j] = [];
+            }
+            time_ms = 0;
+          }
+          else
+            time_ms += interval;
+        }
+      },
+      async: false
+    });
   }, interval);
 
 function ain_datum() {
