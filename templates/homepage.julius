@@ -1,14 +1,43 @@
-var btn_class  = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
-var btn_colors = ['#CC6699', '#FF7F0E', '#17A697', '#3F5D7D', '2CA02C', '#993333'];
-var analog_btn = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
-var analog_in  = [];
-var first_time = true;
+var digital_in  = [];
+var digital_out = [];
+var digital_pwm = [];
+
+var btn_class   = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
+var btn_colors  = ['#CC6699', '#FF7F0E', '#17A697', '#3F5D7D', '2CA02C', '#993333'];
+var analog_btn  = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
+var analog_in   = [];
+var first_time  = true;
 var chart;
 
-var time_ms    = 0;
-var time_range = 10000;
-var ain_data   = [[], [], [], [], [], []];
-var ain_keys   = ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'];
+var time_ms     = 0;
+var time_range  = 10000;
+var ain_data    = [[], [], [], [], [], []];
+var ain_keys    = ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'];
+
+function digital_input_clicked(event, i) {
+  event.preventDefault(); // To prevent following the link (optional)
+
+  var idx = digital_in.indexOf(i);
+  if (idx == -1)
+  {
+    digital_in.push(i);
+  }
+  else
+  {
+    digital_in.splice(idx, 1);
+  }
+
+  console.log(digital_in);
+  $.get('@{DigitalInR}' + '?pins=' + JSON.stringify(digital_in));
+}
+
+function digital_output_clicked(event, i) {
+  event.preventDefault(); // To prevent following the link (optional)
+}
+
+function digital_pwm_clicked(event, i) {
+  event.preventDefault(); // To prevent following the link (optional)
+}
 
 function analog_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
@@ -77,6 +106,21 @@ $('#btn-a2').on('click', function(event) { analog_clicked(event, 2) });
 $('#btn-a3').on('click', function(event) { analog_clicked(event, 3) });
 $('#btn-a4').on('click', function(event) { analog_clicked(event, 4) });
 $('#btn-a5').on('click', function(event) { analog_clicked(event, 5) });
+
+$('#btn-d0-i').on('click', function(event) { digital_input_clicked(event, 0) });
+$('#btn-d1-i').on('click', function(event) { digital_input_clicked(event, 1) });
+$('#btn-d2-i').on('click', function(event) { digital_input_clicked(event, 2) });
+$('#btn-d3-i').on('click', function(event) { digital_input_clicked(event, 3) });
+$('#btn-d4-i').on('click', function(event) { digital_input_clicked(event, 4) });
+$('#btn-d5-i').on('click', function(event) { digital_input_clicked(event, 5) });
+$('#btn-d6-i').on('click', function(event) { digital_input_clicked(event, 6) });
+$('#btn-d7-i').on('click', function(event) { digital_input_clicked(event, 7) });
+$('#btn-d8-i').on('click', function(event) { digital_input_clicked(event, 8) });
+$('#btn-d9-i').on('click', function(event) { digital_input_clicked(event, 9) });
+$('#btn-d10-i').on('click', function(event) { digital_input_clicked(event, 10) });
+$('#btn-d11-i').on('click', function(event) { digital_input_clicked(event, 11) });
+$('#btn-d12-i').on('click', function(event) { digital_input_clicked(event, 12) });
+$('#btn-d13-i').on('click', function(event) { digital_input_clicked(event, 13) });
 
 var interval = 100;
 
