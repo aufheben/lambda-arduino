@@ -28,7 +28,6 @@ import Network.Wai.Middleware.RequestLogger (Destination (Logger),
                                              IPAddrSource (..),
                                              OutputFormat (..), destination,
                                              mkRequestLogger, outputFormat)
-import System.Hardware.Arduino
 import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
 import Util
@@ -44,6 +43,9 @@ import Handler.AnalogIn
 import Handler.AnalogOut
 import Handler.DigitalIn
 import Handler.DigitalOut
+import Handler.DigitalRead
+import Handler.DigltalWrite
+import Handler.AnalogWrite
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the

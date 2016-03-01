@@ -31,6 +31,9 @@ library
                      Handler.AnalogOut
                      Handler.DigitalIn
                      Handler.DigitalOut
+                     Handler.DigitalRead
+                     Handler.DigltalWrite
+                     Handler.AnalogWrite
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

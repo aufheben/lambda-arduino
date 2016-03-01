@@ -13,3 +13,6 @@
 /analog/out AnalogOutR GET
 /digital/in DigitalInR GET
 /digital/out DigitalOutR GET
+/digital/read DigitalReadR GET
+/digital/write DigltalWriteR GET
+/analog/write AnalogWriteR GET

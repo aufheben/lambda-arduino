@@ -17,4 +17,4 @@ getAnalogReadR = do
   -- $logDebug (T.pack $ show ain)
   return $ toJSON (ain :: [Int])
   where
-  analog_read pins = mapM  (\p -> analogRead (analog p)) pins
+  analog_read pins = mapM (\p -> analogRead (analog p)) pins

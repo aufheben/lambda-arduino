@@ -25,6 +25,14 @@ getPins = do
   let Just pins = decodeStrict (encodeUtf8 pins') :: Maybe [Word8]
   return pins
 
+getPV_Int :: Handler [(Word8, Int)]
+getPV_Int = do
+  Just pins' <- lookupGetParam "pins"
+  Just vals' <- lookupGetParam "vals"
+  let Just pins = decodeStrict (encodeUtf8 pins') :: Maybe [Word8]
+      Just vals = decodeStrict (encodeUtf8 vals') :: Maybe [Int]
+  return $ zip pins vals
+
 setPins :: ([Word8] -> Arduino ()) -> Handler Value
 setPins io = do
   pins <- getPins
