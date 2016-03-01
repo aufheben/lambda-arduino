@@ -11,7 +11,7 @@
         <button type="button" .btn .btn-success .btn-circle .btn-lg>
           GND
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d13 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D13
         <ul .dropdown-menu>
           <li>
@@ -21,7 +21,7 @@
             <a #btn-d13-o .dropdown-item href="#">
               Output
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d12 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D12
         <ul .dropdown-menu>
           <li>
@@ -33,7 +33,7 @@
   <div .col-md-3>
     <div .row>
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d11 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D11
         <ul .dropdown-menu>
           <li>
@@ -46,7 +46,7 @@
             <a #btn-d11-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d10 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D10
         <ul .dropdown-menu>
           <li>
@@ -59,7 +59,7 @@
             <a #btn-d10-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d9 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D9
         <ul .dropdown-menu>
           <li>
@@ -72,7 +72,7 @@
             <a #btn-d9-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d8 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D8
         <ul .dropdown-menu>
           <li>
@@ -84,7 +84,7 @@
   <div .col-md-3>
     <div .row>
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d7 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D7
         <ul .dropdown-menu>
           <li>
@@ -94,7 +94,7 @@
             <a #btn-d7-o .dropdown-item href="#">
               Output
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d6 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D6
         <ul .dropdown-menu>
           <li>
@@ -107,7 +107,7 @@
             <a #btn-d6-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d5 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D5
         <ul .dropdown-menu>
           <li>
@@ -120,7 +120,7 @@
             <a #btn-d5-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d4 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D4
         <ul .dropdown-menu>
           <li>
@@ -132,7 +132,7 @@
   <div .col-md-3>
     <div .row>
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d3 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D3
         <ul .dropdown-menu>
           <li>
@@ -145,7 +145,7 @@
             <a #btn-d3-p .dropdown-item href="#">
               PWM
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button #btn-d2 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D2
         <ul .dropdown-menu>
           <li>
@@ -155,11 +155,33 @@
             <a #btn-d2-o .dropdown-item href="#">
               Output
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg>
+        <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D1
       <div .col-md-3>
-        <button type="button" .btn .btn-primary .btn-circle .btn-lg>
+        <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D0
+<div .row>
+  <div .col-md-3>
+    <div .row>
+      <div .col-md-3>
+      <div .col-md-3>
+      <div #div-d13 .col-md-3>
+      <div #div-d12 .col-md-3>
+    <div .row>
+      <div #div-d11 .col-md-3>
+      <div #div-d10 .col-md-3>
+      <div #div-d9 .col-md-3>
+      <div #div-d8 .col-md-3>
+    <div .row>
+      <div #div-d7 .col-md-3>
+      <div #div-d6 .col-md-3>
+      <div #div-d5 .col-md-3>
+      <div #div-d4 .col-md-3>
+    <div .row>
+      <div #div-d3 .col-md-3>
+      <div #div-d2 .col-md-3>
+      <div .col-md-3>
+      <div .col-md-3>
 <div .row #chart>
   <img .center-block src=@{StaticR img_duemilanove_jpg}>
 <div .row>

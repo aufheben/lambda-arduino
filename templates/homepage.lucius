@@ -71,3 +71,21 @@ footer {
   background: #993333;
   border-color: #993333;
 }
+
+.btn-unused,
+.btn-unused:focus {
+  background: #9B539C;
+  border-color: #9B539C;
+}
+
+.btn-on,
+.btn-on:focus {
+  background: #9CFF00;
+  border-color: #9CFF00;
+}
+
+.btn-off,
+.btn-off:focus {
+  background: #CCCCCC;
+  border-color: #CCCCCC;
+}

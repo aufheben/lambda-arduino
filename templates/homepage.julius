@@ -1,6 +1,8 @@
 var digital_in  = [];
 var digital_out = [];
 var digital_pwm = [];
+var digital_btn = ['#btn-d0', '#btn-d1', '#btn-d2', '#btn-d3', '#btn-d4', '#btn-d5', '#btn-d6',
+                   '#btn-d7', '#btn-d8', '#btn-d9', '#btn-d10', '#btn-d11', '#btn-d12', '#btn-d13'];
 
 var din_data    = [];
 var dout_data   = [];
@@ -32,7 +34,10 @@ function digital_input_clicked(event, i) {
   }
 
   console.log(digital_in);
-  $.get('@{DigitalInR}' + '?pins=' + JSON.stringify(digital_in));
+  $.ajax({
+    url: '@{DigitalInR}' + '?pins=' + JSON.stringify(digital_in),
+    async: false
+  });
 }
 
 function digital_output_clicked(event, i) {
@@ -142,7 +147,7 @@ setInterval(function(){
   }).responseText;
   
   var data = JSON.parse(ajax_response);
-  console.log(data);
+  console.log("ain: " + data);
   
   if (analog_in.length == 0)
     time_ms = 0;
@@ -176,6 +181,28 @@ setInterval(function(){
     }
     else
       time_ms += interval;
+  }
+  
+  ajax_response = $.ajax({
+    url: '@{DigitalReadR}' + '?pins=' + JSON.stringify(digital_in),
+    async: false
+  }).responseText;
+  
+  data = JSON.parse(ajax_response);
+  console.log("din: " + data);
+
+  for (var i = 0; i < digital_in.length; i++) {
+    var j = digital_in[i];
+    if (data[i])
+    {
+      $(digital_btn[j]).addClass('btn-on');
+      $(digital_btn[j]).removeClass('btn-off');
+    }
+    else
+    {
+      $(digital_btn[j]).addClass('btn-off');
+      $(digital_btn[j]).removeClass('btn-on');
+    }
   }
 }, interval);
 
