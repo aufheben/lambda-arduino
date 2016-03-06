@@ -6,7 +6,7 @@
     <div .row>
       <div #div-d15 .col-md-3 .btn-cell>
         <a href="#" #port>
-          /dev/ttyUSB2
+          /dev/ttyUSB1
       <div #div-d14 .col-md-3 .btn-cell>
       <div #div-d13 .col-md-3 .btn-cell>
       <div #div-d12 .col-md-3 .btn-cell>
