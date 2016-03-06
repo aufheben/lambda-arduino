@@ -8,16 +8,13 @@ import qualified Data.HashMap.Strict as M
 getTestBlinkR :: Handler Value
 getTestBlinkR = do
   runOnBoard blink
-  return $ toValue []
+  return $ toJSON ()
 
 blink :: IO ()
-blink = withArduino' $ do
+blink = withArduino' "/dev/ttyUSB1" $ do
   let led = digital 13
   setPinMode led OUTPUT
   forever $ do digitalWrite led True
                delay 1000
                digitalWrite led False
                delay 1000
-
-toValue :: [(Text, Text)] -> Value
-toValue = toJSON . M.fromList

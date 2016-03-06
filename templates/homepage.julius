@@ -297,9 +297,11 @@ function ain_datum() {
   return result;
 }
 
+$.fn.editable.defaults.ajaxOptions = {type: "GET"};
+
 $('#port').editable({
     type: 'text',
     pk: 1,
-    url: '/post',
+    url: '/port',
     title: 'Enter port'
 });

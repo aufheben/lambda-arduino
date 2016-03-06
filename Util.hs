@@ -8,8 +8,8 @@ import System.Hardware.Arduino
 
 -- TODO: looks like setting first argument to False will produce this bug:
 -- hArduino:ERROR: Communication time-out (5s) expired.
-withArduino' :: Arduino () -> IO ()
-withArduino' = withArduino True "COM9"
+withArduino' :: FilePath -> Arduino () -> IO ()
+withArduino' port = withArduino True port
 
 runOnBoard :: MonadIO m => IO () -> m ()
 runOnBoard io =
@@ -17,6 +17,15 @@ runOnBoard io =
     cancel a
     _ <- waitCatch a
     async io
+
+loop :: FilePath -> IO ()
+loop port = do
+  withArduino' port $ do
+    setLed True
+    forever $ do
+      io <- liftIO $ takeMVar gArduinoIO
+      a  <- io
+      liftIO $ putMVar gArduinoRes a
 
 -- TODO: error handling
 getPins :: Handler [Word8]

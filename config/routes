@@ -16,3 +16,4 @@
 /digital/read DigitalReadR GET
 /digital/write DigltalWriteR GET
 /analog/write AnalogWriteR GET
+/port PortR GET
