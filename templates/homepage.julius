@@ -1,16 +1,8 @@
 var digital_in  = [];
 var digital_out = [];
 var digital_pwm = [];
-var digital_btn = ['#btn-d0', '#btn-d1', '#btn-d2', '#btn-d3', '#btn-d4', '#btn-d5', '#btn-d6',
-                   '#btn-d7', '#btn-d8', '#btn-d9', '#btn-d10', '#btn-d11', '#btn-d12', '#btn-d13'];
 
-var din_data    = [];
-var dout_data   = [];
-var dpwm_data   = [];
-
-var btn_class   = ['btn-0', 'btn-1', 'btn-2', 'btn-3', 'btn-4', 'btn-5'];
 var btn_colors  = ['#CC6699', '#FF7F0E', '#17A697', '#3F5D7D', '2CA02C', '#993333'];
-var analog_btn  = ['#btn-a0', '#btn-a1', '#btn-a2', '#btn-a3', '#btn-a4', '#btn-a5'];
 var analog_in   = [];
 var first_time  = true;
 var chart;
@@ -18,22 +10,31 @@ var chart;
 var time_ms     = 0;
 var time_range  = 10000;
 var ain_data    = [[], [], [], [], [], []];
-var ain_keys    = ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'];
+
+function digital_clear(i) {
+  var idx = digital_in.indexOf(i);
+  if (idx != -1)
+    digital_in.splice(idx, 1);
+
+  idx = digital_out.indexOf(i);
+  if (idx != -1)
+    digital_out.splice(idx, 1);
+
+  idx = digital_pwm.indexOf(i);
+  if (idx != -1)
+    digital_pwm.splice(idx, 1);
+
+  $('#btn-d'+i).removeClass('btn-on');
+  $('#btn-d'+i).removeClass('btn-off');
+  $('#div-d'+i).empty();
+}
 
 function digital_input_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
 
-  var idx = digital_in.indexOf(i);
-  if (idx == -1)
-  {
-    digital_in.push(i);
-  }
-  else
-  {
-    digital_in.splice(idx, 1);
-  }
+  digital_clear(i);
+  digital_in.push(i);
 
-  console.log(digital_in);
   $.ajax({
     url: '@{DigitalInR}' + '?pins=' + JSON.stringify(digital_in),
     async: false
@@ -42,10 +43,42 @@ function digital_input_clicked(event, i) {
 
 function digital_output_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
+
+  digital_clear(i);
+  digital_out.push(i);
+
+  $('#div-d'+i).html('<input id="toggle-' + i +'" type="checkbox" data-toggle="toggle" data-size="mini">');
+  $('#toggle-'+i).bootstrapToggle();
+
+  $.ajax({
+    url: '@{DigitalOutR}' + '?pins=' + JSON.stringify(digital_out),
+    async: false
+  });
 }
 
 function digital_pwm_clicked(event, i) {
   event.preventDefault(); // To prevent following the link (optional)
+
+  digital_clear(i);
+  digital_pwm.push(i);
+
+  $('#div-d'+i).html('<input id="slider-' + i + '" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="127" class="slider"/>');
+
+  $('#slider-'+i).slider({
+    formatter: function(value) {
+      return 'Current value: ' + value;
+    }
+  });
+
+  $.ajax({
+    url: '@{AnalogOutR}' + '?pins=' + JSON.stringify(digital_pwm),
+    async: false
+  });
+}
+
+function digital_unused_clicked(event, i) {
+  event.preventDefault(); // To prevent following the link (optional)
+  digital_clear(i);
 }
 
 function analog_clicked(event, i) {
@@ -85,18 +118,16 @@ function analog_clicked(event, i) {
     });
   }
 
-  $(analog_btn[i]).toggleClass(btn_class[i]);
+  $('#btn-a'+i).toggleClass('btn-'+i);
 
   var idx = analog_in.indexOf(i);
   if (idx == -1)
-  {
     analog_in.push(i);
-  }
   else
   {
     analog_in.splice(idx, 1);
     ain_data[i] = [];
-    $(analog_btn[i]).html('A' + i);
+    $('#btn-a'+i).html('A' + i);
   }
 
   // console.log(analog_in);
@@ -112,6 +143,7 @@ function analog_clicked(event, i) {
 //   $(analog_btn[i]).on('click', function(event) { analog_clicked(event, i) });
 // }
 
+// TODO: this sucks
 $('#btn-a0').on('click', function(event) { analog_clicked(event, 0) });
 $('#btn-a1').on('click', function(event) { analog_clicked(event, 1) });
 $('#btn-a2').on('click', function(event) { analog_clicked(event, 2) });
@@ -134,29 +166,75 @@ $('#btn-d11-i').on('click', function(event) { digital_input_clicked(event, 11) }
 $('#btn-d12-i').on('click', function(event) { digital_input_clicked(event, 12) });
 $('#btn-d13-i').on('click', function(event) { digital_input_clicked(event, 13) });
 
+$('#btn-d0-o').on('click', function(event) { digital_output_clicked(event, 0) });
+$('#btn-d1-o').on('click', function(event) { digital_output_clicked(event, 1) });
+$('#btn-d2-o').on('click', function(event) { digital_output_clicked(event, 2) });
+$('#btn-d3-o').on('click', function(event) { digital_output_clicked(event, 3) });
+$('#btn-d4-o').on('click', function(event) { digital_output_clicked(event, 4) });
+$('#btn-d5-o').on('click', function(event) { digital_output_clicked(event, 5) });
+$('#btn-d6-o').on('click', function(event) { digital_output_clicked(event, 6) });
+$('#btn-d7-o').on('click', function(event) { digital_output_clicked(event, 7) });
+$('#btn-d8-o').on('click', function(event) { digital_output_clicked(event, 8) });
+$('#btn-d9-o').on('click', function(event) { digital_output_clicked(event, 9) });
+$('#btn-d10-o').on('click', function(event) { digital_output_clicked(event, 10) });
+$('#btn-d11-o').on('click', function(event) { digital_output_clicked(event, 11) });
+$('#btn-d12-o').on('click', function(event) { digital_output_clicked(event, 12) });
+$('#btn-d13-o').on('click', function(event) { digital_output_clicked(event, 13) });
+
+$('#btn-d0-p').on('click', function(event) { digital_pwm_clicked(event, 0) });
+$('#btn-d1-p').on('click', function(event) { digital_pwm_clicked(event, 1) });
+$('#btn-d2-p').on('click', function(event) { digital_pwm_clicked(event, 2) });
+$('#btn-d3-p').on('click', function(event) { digital_pwm_clicked(event, 3) });
+$('#btn-d4-p').on('click', function(event) { digital_pwm_clicked(event, 4) });
+$('#btn-d5-p').on('click', function(event) { digital_pwm_clicked(event, 5) });
+$('#btn-d6-p').on('click', function(event) { digital_pwm_clicked(event, 6) });
+$('#btn-d7-p').on('click', function(event) { digital_pwm_clicked(event, 7) });
+$('#btn-d8-p').on('click', function(event) { digital_pwm_clicked(event, 8) });
+$('#btn-d9-p').on('click', function(event) { digital_pwm_clicked(event, 9) });
+$('#btn-d10-p').on('click', function(event) { digital_pwm_clicked(event, 10) });
+$('#btn-d11-p').on('click', function(event) { digital_pwm_clicked(event, 11) });
+$('#btn-d12-p').on('click', function(event) { digital_pwm_clicked(event, 12) });
+$('#btn-d13-p').on('click', function(event) { digital_pwm_clicked(event, 13) });
+
+$('#btn-d0-u').on('click', function(event) { digital_unused_clicked(event, 0) });
+$('#btn-d1-u').on('click', function(event) { digital_unused_clicked(event, 1) });
+$('#btn-d2-u').on('click', function(event) { digital_unused_clicked(event, 2) });
+$('#btn-d3-u').on('click', function(event) { digital_unused_clicked(event, 3) });
+$('#btn-d4-u').on('click', function(event) { digital_unused_clicked(event, 4) });
+$('#btn-d5-u').on('click', function(event) { digital_unused_clicked(event, 5) });
+$('#btn-d6-u').on('click', function(event) { digital_unused_clicked(event, 6) });
+$('#btn-d7-u').on('click', function(event) { digital_unused_clicked(event, 7) });
+$('#btn-d8-u').on('click', function(event) { digital_unused_clicked(event, 8) });
+$('#btn-d9-u').on('click', function(event) { digital_unused_clicked(event, 9) });
+$('#btn-d10-u').on('click', function(event) { digital_unused_clicked(event, 10) });
+$('#btn-d11-u').on('click', function(event) { digital_unused_clicked(event, 11) });
+$('#btn-d12-u').on('click', function(event) { digital_unused_clicked(event, 12) });
+$('#btn-d13-u').on('click', function(event) { digital_unused_clicked(event, 13) });
+
 var interval = 100;
 
 setInterval(function(){
   // console.log(JSON.stringify({pins : analog_in}));
   // this would convert it to JSON, but that's not the same thing as the query param
 
-  // console.log("### $.get " + analog_in);
-  var ajax_response = $.ajax({
-    url: '@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
-    async: false
-  }).responseText;
-  
-  var data = JSON.parse(ajax_response);
-  console.log("ain: " + data);
-  
   if (analog_in.length == 0)
     time_ms = 0;
   else
   {
+    // console.log("### $.get " + analog_in);
+    var ajax_response = $.ajax({
+      url: '@{AnalogReadR}' + '?pins=' + JSON.stringify(analog_in),
+      async: false
+    }).responseText;
+
+    var data = JSON.parse(ajax_response);
+    if (data.length > 0)
+      console.log("ain: " + data);
+
     for (var i = 0; i < analog_in.length; i++) {
       var j = analog_in[i];
       var voltage = (data[i] / 1023 * 5).toFixed(2)
-      $(analog_btn[j]).html(voltage);
+      $('#btn-a'+j).html(voltage);
       ain_data[j].push({x: time_ms, y: voltage});
     }
 
@@ -183,25 +261,29 @@ setInterval(function(){
       time_ms += interval;
   }
   
-  ajax_response = $.ajax({
-    url: '@{DigitalReadR}' + '?pins=' + JSON.stringify(digital_in),
-    async: false
-  }).responseText;
-  
-  data = JSON.parse(ajax_response);
-  console.log("din: " + data);
+  if (digital_in.length > 0)
+  {
+    ajax_response = $.ajax({
+      url: '@{DigitalReadR}' + '?pins=' + JSON.stringify(digital_in),
+      async: false
+    }).responseText;
 
-  for (var i = 0; i < digital_in.length; i++) {
-    var j = digital_in[i];
-    if (data[i])
-    {
-      $(digital_btn[j]).addClass('btn-on');
-      $(digital_btn[j]).removeClass('btn-off');
-    }
-    else
-    {
-      $(digital_btn[j]).addClass('btn-off');
-      $(digital_btn[j]).removeClass('btn-on');
+    data = JSON.parse(ajax_response);
+    if (data.length > 0)
+      console.log("din: " + data);
+
+    for (var i = 0; i < digital_in.length; i++) {
+      var j = digital_in[i];
+      if (data[i])
+      {
+        $('#btn-d'+j).addClass('btn-on');
+        $('#btn-d'+j).removeClass('btn-off');
+      }
+      else
+      {
+        $('#btn-d'+j).addClass('btn-off');
+        $('#btn-d'+j).removeClass('btn-on');
+      }
     }
   }
 }, interval);
@@ -210,7 +292,14 @@ function ain_datum() {
   var result = []
   for (var i = 0; i < analog_in.length; i++) {
     var j = analog_in[i];
-    result.push({ values: ain_data[j], key: ain_keys[j], color: btn_colors[j] });
+    result.push({ values: ain_data[j], key: 'A'+j, color: btn_colors[j] });
   }
   return result;
 }
+
+$('#port').editable({
+    type: 'text',
+    pk: 1,
+    url: '/post',
+    title: 'Enter port'
+});

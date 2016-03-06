@@ -13,6 +13,9 @@ getHomeR :: Handler Html
 getHomeR =
   defaultLayout $ do
     addStylesheet $ StaticR css_nv_d3_css
+    addStylesheet $ StaticR css_bootstrap_editable_css
+    addStylesheet $ StaticR css_bootstrap_toggle_min_css
+    addStylesheet $ StaticR css_bootstrap_slider_min_css
     setTitle "λ-arduino"
     $(widgetFile "homepage")
 

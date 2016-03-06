@@ -1,16 +1,43 @@
 <h1.jumbotron>
   Welcome to λ-arduino!
 
+<div .row #first-row>
+  <div .col-md-3>
+    <div .row>
+      <div #div-d15 .col-md-3 .btn-cell>
+        <a href="#" #port>
+          /dev/ttyUSB2
+      <div #div-d14 .col-md-3 .btn-cell>
+      <div #div-d13 .col-md-3 .btn-cell>
+      <div #div-d12 .col-md-3 .btn-cell>
+  <div .col-md-3>
+    <div .row>
+      <div #div-d11 .col-md-3 .btn-cell>
+      <div #div-d10 .col-md-3 .btn-cell>
+      <div #div-d9 .col-md-3 .btn-cell>
+      <div #div-d8 .col-md-3 .btn-cell>
+  <div .col-md-3>
+    <div .row>
+      <div #div-d7 .col-md-3 .btn-cell>
+      <div #div-d6 .col-md-3 .btn-cell>
+      <div #div-d5 .col-md-3 .btn-cell>
+      <div #div-d4 .col-md-3 .btn-cell>
+  <div .col-md-3>
+    <div .row>
+      <div #div-d3 .col-md-3 .btn-cell>
+      <div #div-d2 .col-md-3 .btn-cell>
+      <div #div-d1 .col-md-3 .btn-cell>
+      <div #div-d0 .col-md-3 .btn-cell>
 <div .row>
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-warning .btn-circle .btn-lg>
           AREF
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-success .btn-circle .btn-lg>
           GND
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-d13 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D13
         <ul .dropdown-menu>
@@ -20,7 +47,10 @@
           <li>
             <a #btn-d13-o .dropdown-item href="#">
               Output
-      <div .col-md-3>
+          <li>
+            <a #btn-d13-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d12 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D12
         <ul .dropdown-menu>
@@ -30,9 +60,12 @@
           <li>
             <a #btn-d12-o .dropdown-item href="#">
               Output
+          <li>
+            <a #btn-d12-u .dropdown-item href="#">
+              Unused
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-d11 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D11
         <ul .dropdown-menu>
@@ -45,7 +78,10 @@
           <li>
             <a #btn-d11-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d11-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d10 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D10
         <ul .dropdown-menu>
@@ -58,7 +94,10 @@
           <li>
             <a #btn-d10-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d10-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d9 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D9
         <ul .dropdown-menu>
@@ -71,7 +110,10 @@
           <li>
             <a #btn-d9-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d9-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d8 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D8
         <ul .dropdown-menu>
@@ -81,9 +123,12 @@
           <li>
             <a #btn-d8-o .dropdown-item href="#">
               Output
+          <li>
+            <a #btn-d8-u .dropdown-item href="#">
+              Unused
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-d7 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D7
         <ul .dropdown-menu>
@@ -93,7 +138,10 @@
           <li>
             <a #btn-d7-o .dropdown-item href="#">
               Output
-      <div .col-md-3>
+          <li>
+            <a #btn-d7-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d6 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D6
         <ul .dropdown-menu>
@@ -106,7 +154,10 @@
           <li>
             <a #btn-d6-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d6-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d5 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D5
         <ul .dropdown-menu>
@@ -119,7 +170,10 @@
           <li>
             <a #btn-d5-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d5-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d4 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D4
         <ul .dropdown-menu>
@@ -129,9 +183,12 @@
           <li>
             <a #btn-d4-o .dropdown-item href="#">
               Output
+          <li>
+            <a #btn-d4-u .dropdown-item href="#">
+              Unused
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-d3 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D3
         <ul .dropdown-menu>
@@ -144,7 +201,10 @@
           <li>
             <a #btn-d3-p .dropdown-item href="#">
               PWM
-      <div .col-md-3>
+          <li>
+            <a #btn-d3-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button #btn-d2 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           D2
         <ul .dropdown-menu>
@@ -154,86 +214,70 @@
           <li>
             <a #btn-d2-o .dropdown-item href="#">
               Output
-      <div .col-md-3>
+          <li>
+            <a #btn-d2-u .dropdown-item href="#">
+              Unused
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D1
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D0
-<div .row>
-  <div .col-md-3>
-    <div .row>
-      <div .col-md-3>
-      <div .col-md-3>
-      <div #div-d13 .col-md-3>
-      <div #div-d12 .col-md-3>
-    <div .row>
-      <div #div-d11 .col-md-3>
-      <div #div-d10 .col-md-3>
-      <div #div-d9 .col-md-3>
-      <div #div-d8 .col-md-3>
-    <div .row>
-      <div #div-d7 .col-md-3>
-      <div #div-d6 .col-md-3>
-      <div #div-d5 .col-md-3>
-      <div #div-d4 .col-md-3>
-    <div .row>
-      <div #div-d3 .col-md-3>
-      <div #div-d2 .col-md-3>
-      <div .col-md-3>
-      <div .col-md-3>
 <div .row #chart>
   <img .center-block src=@{StaticR img_duemilanove_jpg}>
 <div .row>
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-danger  .btn-circle .btn-lg>
           RST
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-warning .btn-circle .btn-lg>
           3V3
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-warning .btn-circle .btn-lg>
           5V
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-success .btn-circle .btn-lg>
           GND
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-success .btn-circle .btn-lg>
           GND
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-primary .btn-circle .btn-lg>
           Vin
-      <div .col-md-3>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
+      <div .col-md-3 .btn-cell>
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
-      <div .col-md-3>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
+      <div .col-md-3 .btn-cell>
+      <div .col-md-3 .btn-cell>
         <button #btn-a0 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A0
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-a1 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A1
   <div .col-md-3>
     <div .row>
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-a2 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A2
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-a3 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A3
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-a4 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A4
-      <div .col-md-3>
+      <div .col-md-3 .btn-cell>
         <button #btn-a5 type="button" .btn .btn-info    .btn-circle .btn-lg>
           A5
 
 <script src=@{StaticR js_bootstrap_js}>
 <script src=@{StaticR js_d3_min_js}>
 <script src=@{StaticR js_nv_d3_min_js}>
+<script src=@{StaticR js_bootstrap_editable_min_js}>
+<script src=@{StaticR js_bootstrap_toggle_min_js}>
+<script src=@{StaticR js_bootstrap_slider_min_js}>
