@@ -20,4 +20,4 @@ getHomeR =
     $(widgetFile "homepage")
 
 postHomeR :: Handler Html
-postHomeR = undefined
+postHomeR = return $ toHtml ("POST not implemented" :: Text)

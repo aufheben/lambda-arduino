@@ -3,7 +3,6 @@ module Handler.TestBlink where
 import Import
 import System.Hardware.Arduino
 import Util
-import qualified Data.HashMap.Strict as M
 
 getTestBlinkR :: Handler Value
 getTestBlinkR = do

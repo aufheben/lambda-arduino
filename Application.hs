@@ -43,7 +43,7 @@ import Handler.AnalogOut
 import Handler.DigitalIn
 import Handler.DigitalOut
 import Handler.DigitalRead
-import Handler.DigltalWrite
+import Handler.DigitalWrite
 import Handler.AnalogWrite
 import Handler.Port
 

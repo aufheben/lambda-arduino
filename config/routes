@@ -8,12 +8,12 @@
 
 /comments CommentR POST
 /test/blink TestBlinkR GET
-/analog/read AnalogReadR GET
 /analog/in AnalogInR GET
 /analog/out AnalogOutR GET
+/analog/read AnalogReadR GET
+/analog/write/#Word8/#Int AnalogWriteR GET
 /digital/in DigitalInR GET
 /digital/out DigitalOutR GET
 /digital/read DigitalReadR GET
-/digital/write DigltalWriteR GET
-/analog/write AnalogWriteR GET
+/digital/write/#Word8/#Int DigitalWriteR GET
 /port PortR GET
