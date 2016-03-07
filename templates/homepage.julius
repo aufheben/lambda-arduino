@@ -49,6 +49,24 @@ function digital_output_clicked(event, i) {
 
   $('#div-d'+i).html('<input id="toggle-' + i +'" type="checkbox" data-toggle="toggle" data-size="mini">');
   $('#toggle-'+i).bootstrapToggle();
+  $('#toggle-'+i).change(function() {
+    if ($(this).prop('checked'))
+    {
+      console.log('pin on: ' + i);
+      $.ajax({
+        url: '/digital/write/' + i + '/1',
+        async: false
+      });
+    }
+    else
+    {
+      console.log('pin off: ' + i);
+      $.ajax({
+        url: '/digital/write/' + i + '/0',
+        async: false
+      });
+    }
+  })
 
   $.ajax({
     url: '@{DigitalOutR}' + '?pins=' + JSON.stringify(digital_out),
@@ -64,11 +82,20 @@ function digital_pwm_clicked(event, i) {
 
   $('#div-d'+i).html('<input id="slider-' + i + '" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="127" class="slider"/>');
 
-  $('#slider-'+i).slider({
+  var slider_change = function () {
+    var v = slider_data.getValue();
+    console.log('pin ' + i + ' pwm: ' + v);
+    $.ajax({
+      url: '/analog/write/' + i + '/' + v,
+      async: false
+    });
+  };
+
+  var slider_data = $('#slider-'+i).slider({
     formatter: function(value) {
-      return 'Current value: ' + value;
+      return 'Current value: ' + (value * 5 / 255).toFixed(2);
     }
-  });
+  }).on('slideStop', slider_change).data('slider');
 
   $.ajax({
     url: '@{AnalogOutR}' + '?pins=' + JSON.stringify(digital_pwm),
