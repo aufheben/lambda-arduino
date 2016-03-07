@@ -1,5 +1,6 @@
 module Handler.Home where
 
+import Global
 import Import
 
 -- This is a handler function for the GET request method on the HomeR
@@ -10,7 +11,8 @@ import Import
 -- functions. You can spread them across multiple files if you are so
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
-getHomeR =
+getHomeR = do
+  usb_port <- readIORef gUsbPort
   defaultLayout $ do
     addStylesheet $ StaticR css_nv_d3_css
     addStylesheet $ StaticR css_bootstrap_editable_css

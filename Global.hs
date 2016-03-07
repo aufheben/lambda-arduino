@@ -18,3 +18,10 @@ gArduinoIO = unsafePerformIO newEmptyMVar
 gArduinoRes :: MVar a
 {-# NOINLINE gArduinoRes #-}
 gArduinoRes = unsafePerformIO newEmptyMVar
+
+gUsbPort :: IORef FilePath
+gUsbPort = unsafePerformIO $ newIORef defUsbPort
+
+defUsbPort :: FilePath
+defUsbPort = "/dev/ttyUSB1"
+

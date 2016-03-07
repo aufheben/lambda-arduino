@@ -16,6 +16,7 @@ module Application
 import Control.Monad.Logger                 (liftLoc, runLoggingT)
 import Database.Persist.Sqlite              (createSqlitePool, runSqlPool,
                                              sqlDatabase, sqlPoolSize)
+import Global
 import Import
 import Language.Haskell.TH.Syntax           (qLocation)
 import Network.Wai (Middleware)
@@ -130,7 +131,7 @@ warpSettings foundation =
 -- | For yesod devel, return the Warp settings and WAI Application.
 getApplicationDev :: IO (Settings, Application)
 getApplicationDev = do
-    runOnBoard $ loop "/dev/ttyUSB1"
+    runOnBoard $ loop defUsbPort
 
     settings <- getAppSettings
     foundation <- makeFoundation settings
@@ -148,7 +149,7 @@ develMain = develMainHelper getApplicationDev
 -- | The @main@ function for an executable running this site.
 appMain :: IO ()
 appMain = do
-    runOnBoard $ loop "/dev/ttyUSB1"
+    runOnBoard $ loop defUsbPort
 
     -- Get the settings from all relevant sources
     settings <- loadAppSettingsArgs
