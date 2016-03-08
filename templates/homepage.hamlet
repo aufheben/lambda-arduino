@@ -7,27 +7,20 @@
       <div #div-d15 .col-md-3 .btn-cell>
         <a href="#" #port>
           #{usb_port}
-      <div #div-d14 .col-md-3 .btn-cell>
-      <div #div-d13 .col-md-3 .btn-cell>
-      <div #div-d12 .col-md-3 .btn-cell>
+      $forall i <- drop 1 col_3
+        <div #div-d#{i} .col-md-3 .btn-cell>
   <div .col-md-3>
     <div .row>
-      <div #div-d11 .col-md-3 .btn-cell>
-      <div #div-d10 .col-md-3 .btn-cell>
-      <div #div-d9 .col-md-3 .btn-cell>
-      <div #div-d8 .col-md-3 .btn-cell>
+      $forall i <- col_2
+        <div #div-d#{i} .col-md-3 .btn-cell>
   <div .col-md-3>
     <div .row>
-      <div #div-d7 .col-md-3 .btn-cell>
-      <div #div-d6 .col-md-3 .btn-cell>
-      <div #div-d5 .col-md-3 .btn-cell>
-      <div #div-d4 .col-md-3 .btn-cell>
+      $forall i <- col_1
+        <div #div-d#{i} .col-md-3 .btn-cell>
   <div .col-md-3>
     <div .row>
-      <div #div-d3 .col-md-3 .btn-cell>
-      <div #div-d2 .col-md-3 .btn-cell>
-      <div #div-d1 .col-md-3 .btn-cell>
-      <div #div-d0 .col-md-3 .btn-cell>
+      $forall i <- col_0
+        <div #div-d#{i} .col-md-3 .btn-cell>
 <div .row>
   <div .col-md-3>
     <div .row>
@@ -37,186 +30,24 @@
       <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-success .btn-circle .btn-lg>
           GND
-      <div .col-md-3 .btn-cell>
-        <button #btn-d13 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D13
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d13-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d13-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d13-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d12 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D12
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d12-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d12-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d12-u .dropdown-item href="#">
-              Unused
+      ^{dropdown_button 13 False}
+      ^{dropdown_button 12 False}
   <div .col-md-3>
     <div .row>
-      <div .col-md-3 .btn-cell>
-        <button #btn-d11 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D11
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d11-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d11-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d11-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d11-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d10 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D10
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d10-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d10-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d10-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d10-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d9 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D9
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d9-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d9-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d9-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d9-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d8 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D8
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d8-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d8-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d8-u .dropdown-item href="#">
-              Unused
+      ^{dropdown_button 11 True}
+      ^{dropdown_button 10 True}
+      ^{dropdown_button 9  True}
+      ^{dropdown_button 8  True}
   <div .col-md-3>
     <div .row>
-      <div .col-md-3 .btn-cell>
-        <button #btn-d7 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D7
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d7-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d7-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d7-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d6 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D6
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d6-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d6-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d6-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d6-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d5 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D5
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d5-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d5-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d5-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d5-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d4 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D4
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d4-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d4-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d4-u .dropdown-item href="#">
-              Unused
+      ^{dropdown_button 7  False}
+      ^{dropdown_button 6  True}
+      ^{dropdown_button 5  True}
+      ^{dropdown_button 4  False}
   <div .col-md-3>
     <div .row>
-      <div .col-md-3 .btn-cell>
-        <button #btn-d3 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D3
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d3-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d3-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d3-p .dropdown-item href="#">
-              PWM
-          <li>
-            <a #btn-d3-u .dropdown-item href="#">
-              Unused
-      <div .col-md-3 .btn-cell>
-        <button #btn-d2 type="button" .btn .btn-primary .btn-circle .btn-lg .dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          D2
-        <ul .dropdown-menu>
-          <li>
-            <a #btn-d2-i .dropdown-item href="#">
-              Input
-          <li>
-            <a #btn-d2-o .dropdown-item href="#">
-              Output
-          <li>
-            <a #btn-d2-u .dropdown-item href="#">
-              Unused
+      ^{dropdown_button 3  True}
+      ^{dropdown_button 2  False}
       <div .col-md-3 .btn-cell>
         <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D1
@@ -254,26 +85,14 @@
     <div .row>
       <div .col-md-3 .btn-cell>
       <div .col-md-3 .btn-cell>
-      <div .col-md-3 .btn-cell>
-        <button #btn-a0 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A0
-      <div .col-md-3 .btn-cell>
-        <button #btn-a1 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A1
+      ^{analog_button 0}
+      ^{analog_button 1}
   <div .col-md-3>
     <div .row>
-      <div .col-md-3 .btn-cell>
-        <button #btn-a2 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A2
-      <div .col-md-3 .btn-cell>
-        <button #btn-a3 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A3
-      <div .col-md-3 .btn-cell>
-        <button #btn-a4 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A4
-      <div .col-md-3 .btn-cell>
-        <button #btn-a5 type="button" .btn .btn-info    .btn-circle .btn-lg>
-          A5
+      ^{analog_button 2}
+      ^{analog_button 3}
+      ^{analog_button 4}
+      ^{analog_button 5}
 
 <script src=@{StaticR js_bootstrap_js}>
 <script src=@{StaticR js_d3_min_js}>

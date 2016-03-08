@@ -98,6 +98,7 @@ library
                  , wai
                  , hArduino
                  , async
+                 , blaze-markup
 
 executable         arduino
     if flag(library-only)
