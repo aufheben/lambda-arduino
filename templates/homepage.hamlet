@@ -37,7 +37,7 @@
       ^{dropdown_button 11 True}
       ^{dropdown_button 10 True}
       ^{dropdown_button 9  True}
-      ^{dropdown_button 8  True}
+      ^{dropdown_button 8  False}
   <div .col-md-3>
     <div .row>
       ^{dropdown_button 7  False}
@@ -55,7 +55,8 @@
         <button type="button" .btn .btn-primary .btn-unused .btn-circle .btn-lg>
           D0
 <div .row #chart>
-  <img .center-block src=@{StaticR img_duemilanove_jpg}>
+  $# <img .center-block src=@{StaticR img_duemilanove_jpg}>
+  <img .center-block src=@{StaticR img_uno_jpg} style="margin-top: 22px; margin-bottom: 22px;">
 <div .row>
   <div .col-md-3>
     <div .row>
