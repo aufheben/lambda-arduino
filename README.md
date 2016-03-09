@@ -1,5 +1,7 @@
 λ-arduino is a framework for building beautiful web interfaces for Arduino. The aim of this project is to make IoT development with Arduino easier and more enjoyable.
 
+![screenshot](https://raw.githubusercontent.com/aufheben/lambda-arduino/master/doc/screenshot.png)
+
 ---
 
 ## How to test
