@@ -23,7 +23,7 @@ Then, follow the [Yesod quick start guide](http://www.yesodweb.com/page/quicksta
 1. Build libraries: `stack build`
 1. Launch devel server: `stack exec -- yesod devel`. On Linux you need to be root to access the /dev/ttyUSBx device, therefore use `sudo stack exec --allow-different-user -- yesod devel`
 1. View the site at http://localhost:3000/
-1. Change port from "/dev/ttyUSB1" to the actual USB port that your Arduino is connecting to (on Windows it is COMx where x is a number from 0 to 255)
+1. Change port from "/dev/ttyUSB1" to the actual USB port that your Arduino is connecting to (on Windows it is COMx where x is a number between 0 and 255)
 
 ---
 
