@@ -1,4 +1,4 @@
-name:              arduino
+name:              lambda-arduino
 version:           0.0.0
 cabal-version:     >= 1.8
 build-type:        Simple
@@ -100,13 +100,13 @@ library
                  , async
                  , blaze-markup
 
-executable         arduino
+executable         lambda-arduino
     if flag(library-only)
         Buildable: False
 
     main-is:           main.hs
     hs-source-dirs:    app
-    build-depends:     base, arduino
+    build-depends:     base, lambda-arduino
 
     ghc-options:       -threaded -rtsopts -with-rtsopts=-N
 
@@ -134,7 +134,7 @@ test-suite test
                 TupleSections
 
     build-depends: base
-                 , arduino
+                 , lambda-arduino
                  , yesod-test >= 1.5.0.1 && < 1.6
                  , yesod-core
                  , yesod
