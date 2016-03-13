@@ -12,7 +12,7 @@
 1. Open "File -> Examples -> Firmata -> StandardFirmata"
 1. Upload the program to the board
 
-If you just to want to test λ-arduino, download the [binary file](https://github.com/aufheben/lambda-arduino/releases/download/v0.1/lambda-arduino.7z) and run `lambda-arduino.exe` (Windows) or `lambda-arduino` (Linux). If you want to build λ-arduino yourself, follow the instructions below.
+If you just to want to test λ-arduino, download the [binary file](https://github.com/aufheben/lambda-arduino/releases/download/v0.1/lambda-arduino.7z) and run `lambda-arduino.exe` (Windows) or `lambda-arduino` (Linux), and then follow the [release instructions](https://github.com/aufheben/lambda-arduino/releases/tag/v0.1). If you want to build λ-arduino yourself, follow the instructions below.
 
 ## How to build
 
