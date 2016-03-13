@@ -12,6 +12,8 @@
 1. Open "File -> Examples -> Firmata -> StandardFirmata"
 1. Upload the program to the board
 
+If you just to want to test λ-arduino, download the [binary file](https://github.com/aufheben/lambda-arduino/releases/download/v0.1/lambda-arduino.7z) and run `lambda-arduino.exe` (Windows) or `lambda-arduino` (Linux). If you want to build λ-arduino yourself, follow the instructions below.
+
 ## How to build
 
 λ-arduino is written in Haskell with the high-powered [Yesod](http://www.yesodweb.com/) web framework. To build it you need [stack](http://docs.haskellstack.org/en/stable/README/), the Haskell build tool. Follow the [instructions](http://docs.haskellstack.org/en/stable/install_and_upgrade/) to install stack.
